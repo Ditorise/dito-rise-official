@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 import Modals from '../components/Modals';
 
 export default function Home() {
-  const [activeModal, setActiveModal] = useState<string | null>(null);
+  const [modalType, setModalType] = useState<string | null>(null);
 
   const PHONE_NUMBER = "233245681145";
 
@@ -18,10 +18,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#0A1628] text-white flex flex-col justify-between font-sans">
       
-      {/* 1. Navbar with Modal Props fixed */}
+      {/* 1. Navbar */}
       <Navbar 
-        onOpenAmbassadorModal={() => setActiveModal('ambassador')}
-        onOpenBookModal={() => setActiveModal('book')}
+        onOpenAmbassadorModal={() => setModalType('ambassador')}
+        onOpenBookModal={() => setModalType('book')}
       />
 
       {/* 2. Main Content */}
@@ -69,7 +69,6 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Series 1 */}
             <div className="bg-[#132238] border-t-4 border-[#D4A017] p-6 rounded-xl border-x border-b border-[#1e3a5f]">
               <span className="text-[#E87722] text-xs font-bold uppercase">Series 1</span>
               <h3 className="text-xl font-bold text-white mt-1 mb-3">Digital Marketing Series</h3>
@@ -77,7 +76,6 @@ export default function Home() {
               <span className="inline-block bg-[#0A1628] text-[#F5C518] text-xs px-3 py-1 rounded border border-[#1e3a5f]">Available on Selar.co</span>
             </div>
 
-            {/* Series 2 */}
             <div className="bg-[#132238] border-t-4 border-[#F5C518] p-6 rounded-xl border-x border-b border-[#1e3a5f]">
               <span className="text-[#E87722] text-xs font-bold uppercase">Series 2 • Standalone</span>
               <h3 className="text-xl font-bold text-white mt-1 mb-3">The Intentional Mind</h3>
@@ -85,7 +83,6 @@ export default function Home() {
               <span className="inline-block bg-[#0A1628] text-[#F5C518] text-xs px-3 py-1 rounded border border-[#1e3a5f]">Amazon KDP & Selar</span>
             </div>
 
-            {/* Series 3 */}
             <div className="bg-[#132238] border-t-4 border-[#E87722] p-6 rounded-xl border-x border-b border-[#1e3a5f]">
               <span className="text-[#E87722] text-xs font-bold uppercase">Series 3</span>
               <h3 className="text-xl font-bold text-white mt-1 mb-3">Student Success Series</h3>
@@ -104,7 +101,6 @@ export default function Home() {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-2xl mx-auto">
-              {/* MoMo Box */}
               <div className="bg-[#132238] border border-[#1e3a5f] p-6 rounded-xl shadow-lg">
                 <h3 className="text-[#F5C518] font-bold text-lg mb-3">MTN Mobile Money (MoMo)</h3>
                 <p className="text-gray-200 text-sm mb-1"><strong>Number:</strong> 0536099813</p>
@@ -112,7 +108,6 @@ export default function Home() {
                 <p className="text-[#E87722] text-xs font-semibold mt-3">Reference: Support Dito Rise</p>
               </div>
 
-              {/* WhatsApp Box */}
               <div className="bg-[#132238] border border-[#1e3a5f] p-6 rounded-xl shadow-lg flex flex-col justify-between">
                 <div>
                   <h3 className="text-[#F5C518] font-bold text-lg mb-2">Direct Contact</h3>
@@ -131,12 +126,14 @@ export default function Home() {
 
       </main>
 
-      {/* Modals Handler */}
-      {activeModal && (
-        <Modals activeModal={activeModal} onClose={() => setActiveModal(null)} />
-      )}
+      {/* Correct Modals Props matching Modals.tsx */}
+      <Modals 
+        isOpen={Boolean(modalType)} 
+        modalType={modalType} 
+        onClose={() => setModalType(null)} 
+      />
 
-      {/* Footer */}
+      {/* 3. Footer */}
       <Footer />
 
     </div>
