@@ -1,8 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 export default function Home() {
   const [pages, setPages] = useState<number>(1);
@@ -11,7 +9,6 @@ export default function Home() {
   const totalEstimate = pages * pricePerPage;
   const deposit = totalEstimate * 0.5;
 
-  // DITO RISE Official Contact Number
   const PHONE_NUMBER = "233245681145"; 
 
   const handleWhatsAppQuote = () => {
@@ -27,10 +24,13 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#0A1628] text-white flex flex-col justify-between font-sans">
       
-      {/* 1. Global Navigation */}
-      <Navbar />
+      {/* Navigation */}
+      <header className="px-6 py-5 bg-[#0A1628] border-b border-[#D4A017] flex justify-between items-center">
+        <div className="text-2xl font-bold text-[#F5C518] tracking-wider">DITO RISE</div>
+        <div className="text-xs text-[#D4A017] uppercase tracking-widest hidden sm:block">Learn. Grow. Earn.</div>
+      </header>
 
-      {/* 2. Hero Section */}
+      {/* Hero Section */}
       <section className="px-6 py-16 text-center max-w-5xl mx-auto">
         <span className="text-[#D4A017] tracking-widest text-xs font-bold uppercase block mb-3">
           Global Foundation & Empowerment
@@ -51,7 +51,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Grand Quote Box */}
+      {/* Quote Section */}
       <section className="px-6 my-6">
         <div className="max-w-4xl mx-auto bg-[#0A1628] border-2 border-[#D4A017] p-8 rounded-lg text-center shadow-2xl">
           <p className="text-[#F5C518] text-2xl italic font-semibold">
@@ -61,7 +61,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. DITO RISE Books & Publications Showcase */}
+      {/* Books Showcase */}
       <section id="books" className="px-6 py-16 max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-[#F5C518]">The DITO RISE Publication Series</h2>
@@ -69,8 +69,6 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          {/* Series 1 */}
           <div className="bg-[#132238] border-t-4 border-[#D4A017] p-6 rounded-xl border-x border-b border-[#1e3a5f]">
             <span className="text-[#E87722] text-xs font-bold uppercase">Series 1</span>
             <h3 className="text-xl font-bold text-white mt-1 mb-3">Digital Marketing Series</h3>
@@ -78,7 +76,6 @@ export default function Home() {
             <span className="inline-block bg-[#0A1628] text-[#F5C518] text-xs px-3 py-1 rounded border border-[#1e3a5f]">Available on Selar.co</span>
           </div>
 
-          {/* Series 2 */}
           <div className="bg-[#132238] border-t-4 border-[#F5C518] p-6 rounded-xl border-x border-b border-[#1e3a5f]">
             <span className="text-[#E87722] text-xs font-bold uppercase">Series 2 • Standalone</span>
             <h3 className="text-xl font-bold text-white mt-1 mb-3">The Intentional Mind</h3>
@@ -86,18 +83,16 @@ export default function Home() {
             <span className="inline-block bg-[#0A1628] text-[#F5C518] text-xs px-3 py-1 rounded border border-[#1e3a5f]">Amazon KDP & Selar</span>
           </div>
 
-          {/* Series 3 */}
           <div className="bg-[#132238] border-t-4 border-[#E87722] p-6 rounded-xl border-x border-b border-[#1e3a5f]">
             <span className="text-[#E87722] text-xs font-bold uppercase">Series 3</span>
             <h3 className="text-xl font-bold text-white mt-1 mb-3">Student Success Series</h3>
             <p className="text-gray-300 text-sm mb-4">Curriculum tools and life guidance for students aged 12-21, schools, and educational institutions.</p>
             <span className="inline-block bg-[#0A1628] text-[#F5C518] text-xs px-3 py-1 rounded border border-[#1e3a5f]">School Programmes</span>
           </div>
-
         </div>
       </section>
 
-      {/* 5. Services & Support Section (Calculator + MoMo) */}
+      {/* Services & Support Section */}
       <section id="services" className="px-6 py-16 bg-[#060e1a]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
@@ -106,8 +101,6 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            {/* Interactive Calculator */}
             <div className="bg-[#132238] border-t-4 border-[#D4A017] border-x border-b border-[#1e3a5f] rounded-xl p-6 shadow-xl">
               <h3 className="text-[#F5C518] text-2xl font-bold pb-2 border-b border-[#1e3a5f] mb-4">
                 Web Development Cost Estimator
@@ -148,7 +141,6 @@ export default function Home() {
               </button>
             </div>
 
-            {/* Support Movement & MoMo */}
             <div className="bg-[#132238] border-t-4 border-[#D4A017] border-x border-b border-[#1e3a5f] rounded-xl p-6 shadow-xl flex flex-col justify-between">
               <div>
                 <h3 className="text-[#F5C518] text-2xl font-bold pb-2 border-b border-[#1e3a5f] mb-4">
@@ -173,13 +165,14 @@ export default function Home() {
                 💬 Direct WhatsApp Contact
               </button>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* 6. Global Footer */}
-      <Footer />
+      {/* Footer */}
+      <footer className="px-6 py-8 bg-[#060e1a] border-t border-[#1e3a5f] text-center text-sm text-[#D4A017]">
+        DITO RISE — Learn. Grow. Earn. | All Rights Reserved
+      </footer>
 
     </div>
   );
