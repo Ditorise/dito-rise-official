@@ -1,10 +1,14 @@
 'use client';
 
+import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Modals from '../components/Modals';
 
 export default function Home() {
-  const PHONE_NUMBER = "233245681145"; 
+  const [activeModal, setActiveModal] = useState<string | null>(null);
+
+  const PHONE_NUMBER = "233245681145";
 
   const handleWhatsAppClick = () => {
     const message = "Hello Dito! I visited the DITO RISE platform and would like to connect / support the movement.";
@@ -14,10 +18,13 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#0A1628] text-white flex flex-col justify-between font-sans">
       
-      {/* Navbar Component */}
-      <Navbar />
+      {/* 1. Navbar with Modal Props fixed */}
+      <Navbar 
+        onOpenAmbassadorModal={() => setActiveModal('ambassador')}
+        onOpenBookModal={() => setActiveModal('book')}
+      />
 
-      {/* Main Content */}
+      {/* 2. Main Content */}
       <main className="flex-grow">
         
         {/* Hero Section */}
@@ -88,7 +95,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Support & Contact Section */}
+        {/* Support & MoMo Section */}
         <section id="support" className="px-6 py-16 bg-[#060e1a]">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-[#F5C518] mb-4">Support the DITO RISE Movement</h2>
@@ -97,7 +104,7 @@ export default function Home() {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-2xl mx-auto">
-              {/* MoMo Info */}
+              {/* MoMo Box */}
               <div className="bg-[#132238] border border-[#1e3a5f] p-6 rounded-xl shadow-lg">
                 <h3 className="text-[#F5C518] font-bold text-lg mb-3">MTN Mobile Money (MoMo)</h3>
                 <p className="text-gray-200 text-sm mb-1"><strong>Number:</strong> 0536099813</p>
@@ -105,7 +112,7 @@ export default function Home() {
                 <p className="text-[#E87722] text-xs font-semibold mt-3">Reference: Support Dito Rise</p>
               </div>
 
-              {/* Direct WhatsApp Contact */}
+              {/* WhatsApp Box */}
               <div className="bg-[#132238] border border-[#1e3a5f] p-6 rounded-xl shadow-lg flex flex-col justify-between">
                 <div>
                   <h3 className="text-[#F5C518] font-bold text-lg mb-2">Direct Contact</h3>
@@ -124,7 +131,12 @@ export default function Home() {
 
       </main>
 
-      {/* Footer Component */}
+      {/* Modals Handler */}
+      {activeModal && (
+        <Modals activeModal={activeModal} onClose={() => setActiveModal(null)} />
+      )}
+
+      {/* Footer */}
       <Footer />
 
     </div>
