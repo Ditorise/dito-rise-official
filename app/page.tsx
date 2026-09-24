@@ -99,7 +99,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href="#books" className="bg-[#D4A017] hover:bg-[#F5C518] text-[#0A1628] font-bold px-8 py-3 rounded-md transition">
-              Explore Book Library
+              Explore 8 Book Library
             </a>
             <button 
               onClick={handleWhatsAppClick}
@@ -142,7 +142,7 @@ export default function Home() {
         <section id="books" className="px-6 py-16 max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#F5C518]">The DITO RISE Publication Series</h2>
-            <p className="text-gray-400 mt-2">Books designed to transform minds, build brands, and empower individuals. Exclusively available on Selar.</p>
+            <p className="text-gray-400 mt-2">Books designed to transform minds, build brands, and empower individuals. Available on Selar.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -176,7 +176,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Support & MoMo Section */}
+        {/* Support & Direct MoMo Section */}
         <section id="support" className="px-6 py-16 bg-[#060e1a]">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-[#F5C518] mb-4">Support the DITO RISE Movement</h2>
@@ -185,6 +185,7 @@ export default function Home() {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-2xl mx-auto">
+              
               <div className="bg-[#132238] border border-[#1e3a5f] p-6 rounded-xl shadow-lg flex flex-col justify-between">
                 <div>
                   <h3 className="text-[#F5C518] font-bold text-lg mb-3">MTN Mobile Money (MoMo)</h3>
@@ -196,8 +197,8 @@ export default function Home() {
 
               <div className="bg-[#132238] border border-[#1e3a5f] p-6 rounded-xl shadow-lg flex flex-col justify-between">
                 <div>
-                  <h3 className="text-[#F5C518] font-bold text-lg mb-2">Direct Contact</h3>
-                  <p className="text-gray-300 text-sm mb-4">Reach out to us directly on WhatsApp to collaborate or confirm a transfer.</p>
+                  <h3 className="text-[#F5C518] font-bold text-lg mb-2">Direct WhatsApp Contact</h3>
+                  <p className="text-gray-300 text-sm mb-4">Reach out to us directly on WhatsApp to collaborate or send payment receipts.</p>
                 </div>
                 <button 
                   onClick={handleWhatsAppClick}
@@ -206,6 +207,7 @@ export default function Home() {
                   💬 Chat on WhatsApp
                 </button>
               </div>
+
             </div>
           </div>
         </section>
