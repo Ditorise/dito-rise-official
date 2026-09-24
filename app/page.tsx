@@ -15,6 +15,65 @@ export default function Home() {
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
+  const booksList = [
+    {
+      title: "WE ARE ONE",
+      subtitle: "Mindset & Purpose Transformation",
+      badge: "Featured Release",
+      desc: "Discover the power of unity, self-awareness, and shared vision to align daily habits with true purpose.",
+      img: "/book-we-are-one.png"
+    },
+    {
+      title: "The Intentional Mind",
+      subtitle: "21-Day Mind Reset",
+      badge: "Self-Mastery",
+      desc: "How to think, decide, and live with clarity. Includes truth bombs, guided reflections, and practical steps.",
+      img: "/book-intentional-mind.png"
+    },
+    {
+      title: "Digital Marketing Mastery",
+      subtitle: "Digital Series Vol. 1",
+      badge: "Business & Growth",
+      desc: "Comprehensive strategy guide for modern entrepreneurs to build and scale brands online.",
+      img: "/book-digital-marketing.png"
+    },
+    {
+      title: "Selling Online in Africa",
+      subtitle: "Digital Series Vol. 2",
+      badge: "Sales & E-Commerce",
+      desc: "Actionable techniques for generating consistent online revenues and mastering customer conversion.",
+      img: "/book-selling-online.png"
+    },
+    {
+      title: "Social Media Strategy",
+      subtitle: "Digital Series Vol. 3",
+      badge: "Brand Building",
+      desc: "Organic growth blueprints, content creation framework, and audience engagement formulas.",
+      img: "/book-social-media.png"
+    },
+    {
+      title: "Building African Brands",
+      subtitle: "Digital Series Vol. 4",
+      badge: "Entrepreneurship",
+      desc: "Creating sustainable, high-impact brands structured specifically for African market realities.",
+      img: "/book-african-brands.png"
+    },
+    {
+      title: "Student Success Blueprint",
+      subtitle: "Student Success Series",
+      badge: "Youth Empowerment",
+      desc: "Academic excellence and life skills guidance tailored for students aged 12–21.",
+      img: "/book-student-success.png"
+    },
+    {
+      title: "The Visionary Leader",
+      subtitle: "Leadership Series",
+      badge: "Leadership",
+      desc: "Developing character, discipline, and long-term perspective to lead effectively in any field.",
+      img: "/book-visionary-leader.png"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-[#0A1628] text-white flex flex-col justify-between font-sans">
       
@@ -40,7 +99,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href="#books" className="bg-[#D4A017] hover:bg-[#F5C518] text-[#0A1628] font-bold px-8 py-3 rounded-md transition">
-              Explore Book Library
+              Explore 8 Book Library
             </a>
             <button 
               onClick={handleWhatsAppClick}
@@ -79,60 +138,45 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured Book Showcase */}
-        <section className="px-6 py-12 bg-[#081220]">
-          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-[#132238] p-8 rounded-2xl border border-[#1e3a5f]">
-            <div className="flex justify-center">
-              <img 
-                src="/book-we-are-one.png" 
-                alt="We Are One Book Cover" 
-                className="w-64 md:w-80 rounded-lg shadow-2xl border border-[#D4A017] object-cover"
-              />
-            </div>
-            <div>
-              <span className="text-[#E87722] text-xs font-bold uppercase tracking-wider block mb-2">Featured Release</span>
-              <h3 className="text-3xl font-bold text-white mb-4">WE ARE ONE</h3>
-              <p className="text-gray-300 text-sm mb-6 leading-relaxed">
-                Discover the transformative power of unity, self-awareness, and shared vision. A powerful blueprint designed to shift your mindset and realign your daily habits with true purpose.
-              </p>
-              <button 
-                onClick={() => setModalType('book')}
-                className="bg-[#D4A017] hover:bg-[#F5C518] text-[#0A1628] font-bold px-6 py-3 rounded-md transition"
-              >
-                Request / Order This Book
-              </button>
-            </div>
-          </div>
-        </section>
-
-        {/* Books & Publications Section */}
-        <section id="books" className="px-6 py-16 max-w-6xl mx-auto">
+        {/* Full 8 Books Showcase Section */}
+        <section id="books" className="px-6 py-16 max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#F5C518]">The DITO RISE Publication Series</h2>
-            <p className="text-gray-400 mt-2">Books designed to transform minds, build brands, and empower students.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#F5C518]">The Full DITO RISE Library (8 Books)</h2>
+            <p className="text-gray-400 mt-2">Publications designed to transform minds, build brands, and empower students. Exclusively available on Selar.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-[#132238] border-t-4 border-[#D4A017] p-6 rounded-xl border-x border-b border-[#1e3a5f]">
-              <span className="text-[#E87722] text-xs font-bold uppercase">Series 1</span>
-              <h3 className="text-xl font-bold text-white mt-1 mb-3">Digital Marketing Series</h3>
-              <p className="text-gray-300 text-sm mb-4">4-Book Series covering Social Media Mastery, Selling Online, and Brand Building for African Entrepreneurs.</p>
-              <span className="inline-block bg-[#0A1628] text-[#F5C518] text-xs px-3 py-1 rounded border border-[#1e3a5f]">Available on Selar.co</span>
-            </div>
-
-            <div className="bg-[#132238] border-t-4 border-[#F5C518] p-6 rounded-xl border-x border-b border-[#1e3a5f]">
-              <span className="text-[#E87722] text-xs font-bold uppercase">Series 2 • Standalone</span>
-              <h3 className="text-xl font-bold text-white mt-1 mb-3">The Intentional Mind</h3>
-              <p className="text-gray-300 text-sm mb-4">How to Think, Decide & Live With Purpose. Includes truth bombs, reflections, and the 21-Day Mind Reset.</p>
-              <span className="inline-block bg-[#0A1628] text-[#F5C518] text-xs px-3 py-1 rounded border border-[#1e3a5f]">Amazon KDP & Selar</span>
-            </div>
-
-            <div className="bg-[#132238] border-t-4 border-[#E87722] p-6 rounded-xl border-x border-b border-[#1e3a5f]">
-              <span className="text-[#E87722] text-xs font-bold uppercase">Series 3</span>
-              <h3 className="text-xl font-bold text-white mt-1 mb-3">Student Success Series</h3>
-              <p className="text-gray-300 text-sm mb-4">Curriculum tools and life guidance for students aged 12-21, schools, and educational institutions.</p>
-              <span className="inline-block bg-[#0A1628] text-[#F5C518] text-xs px-3 py-1 rounded border border-[#1e3a5f]">School Programmes</span>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {booksList.map((book, idx) => (
+              <div key={idx} className="bg-[#132238] border border-[#1e3a5f] hover:border-[#D4A017] p-5 rounded-xl flex flex-col justify-between transition shadow-lg">
+                <div>
+                  <div className="w-full h-56 bg-[#0A1628] rounded-lg overflow-hidden mb-4 flex items-center justify-center border border-[#1e3a5f]">
+                    <img 
+                      src={book.img} 
+                      alt={book.title}
+                      className="h-full object-contain"
+                      onError={(e) => {
+                        // Fallback image if exact filename differs in public folder
+                        (e.target as HTMLElement).setAttribute('src', '/book-we-are-one.png');
+                      }}
+                    />
+                  </div>
+                  <span className="text-[#E87722] text-xs font-bold uppercase block mb-1">{book.badge}</span>
+                  <h3 className="text-lg font-bold text-white mb-1">{book.title}</h3>
+                  <p className="text-[#F5C518] text-xs font-semibold mb-2">{book.subtitle}</p>
+                  <p className="text-gray-300 text-xs mb-4 leading-relaxed">{book.desc}</p>
+                </div>
+                <div>
+                  <a 
+                    href="https://selar.co" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block text-center bg-[#D4A017] hover:bg-[#F5C518] text-[#0A1628] font-bold text-xs py-2 px-3 rounded transition"
+                  >
+                    Get on Selar.co →
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
