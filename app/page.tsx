@@ -5,12 +5,6 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Modals from '../components/Modals';
 
-declare global {
-  interface Window {
-    PaystackPop: any;
-  }
-}
-
 export default function Home() {
   const [modalType, setModalType] = useState<string | null>(null);
 
@@ -19,38 +13,6 @@ export default function Home() {
   const handleWhatsAppClick = () => {
     const message = "Hello Dito! I visited the DITO RISE platform and would like to connect / support the movement.";
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
-  };
-
-  const handlePaystackPayment = (amountInGHS: number, itemTitle: string = "DITO RISE Support") => {
-    if (typeof window === 'undefined' || !window.PaystackPop) {
-      alert("Paystack payment engine is initializing. Please try again in 5 seconds.");
-      return;
-    }
-
-    const handler = window.PaystackPop.setup({
-      key: 'pk_live_xxxxxxxxxxxxxxxxxxxxxxxx', // Replace with your Paystack Public Key when ready
-      email: 'ditorise@gmail.com',
-      amount: amountInGHS * 100, // Paystack works in pesewas
-      currency: 'GHS',
-      ref: 'DITO_' + Math.floor(Math.random() * 1000000000 + 1),
-      metadata: {
-        custom_fields: [
-          {
-            display_name: "Purpose",
-            variable_name: "purpose",
-            value: itemTitle
-          }
-        ]
-      },
-      callback: function(response: any) {
-        alert('Payment successful! Reference: ' + response.reference);
-      },
-      onClose: function() {
-        alert('Transaction cancelled.');
-      }
-    });
-
-    handler.openIframe();
   };
 
   const booksList = [
@@ -137,7 +99,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href="#books" className="bg-[#D4A017] hover:bg-[#F5C518] text-[#0A1628] font-bold px-8 py-3 rounded-md transition">
-              Explore 8 Book Library
+              Explore Book Library
             </a>
             <button 
               onClick={handleWhatsAppClick}
@@ -180,7 +142,7 @@ export default function Home() {
         <section id="books" className="px-6 py-16 max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#F5C518]">The DITO RISE Publication Series</h2>
-            <p className="text-gray-400 mt-2">Books designed to transform minds, build brands, and empower individuals. Available on Selar & Direct Purchase.</p>
+            <p className="text-gray-400 mt-2">Books designed to transform minds, build brands, and empower individuals. Exclusively available on Selar.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -199,20 +161,14 @@ export default function Home() {
                   <p className="text-[#F5C518] text-xs font-semibold mb-2">{book.subtitle}</p>
                   <p className="text-gray-300 text-xs mb-4 leading-relaxed">{book.desc}</p>
                 </div>
-                <div className="flex flex-col gap-2">
-                  <button 
-                    onClick={() => handlePaystackPayment(50, `Order: ${book.title}`)}
-                    className="w-full text-center bg-[#D4A017] hover:bg-[#F5C518] text-[#0A1628] font-bold text-xs py-2 px-3 rounded transition"
-                  >
-                    Pay via MoMo / Card (GHS 50) →
-                  </button>
+                <div>
                   <a 
-                    href="https://selar.co"
-                    target="_blank"
+                    href="https://selar.co" 
+                    target="_blank" 
                     rel="noopener noreferrer"
-                    className="w-full text-center bg-[#0A1628] border border-[#1e3a5f] hover:border-[#D4A017] text-gray-300 text-xs py-1.5 px-3 rounded transition"
+                    className="block text-center bg-[#D4A017] hover:bg-[#F5C518] text-[#0A1628] font-bold text-xs py-2.5 px-3 rounded transition"
                   >
-                    Buy on Selar.co
+                    Buy on Selar.co →
                   </a>
                 </div>
               </div>
@@ -225,27 +181,23 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-[#F5C518] mb-4">Support the DITO RISE Movement</h2>
             <p className="text-gray-300 text-sm max-w-2xl mx-auto mb-8">
-              Help fund book distributions in schools, youth education programs, and community growth for the DITO RISE movement.
+              Help fund book distributions in schools, youth education programs, and community growth. Send any amount directly via Mobile Money.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-2xl mx-auto">
               <div className="bg-[#132238] border border-[#1e3a5f] p-6 rounded-xl shadow-lg flex flex-col justify-between">
                 <div>
-                  <h3 className="text-[#F5C518] font-bold text-lg mb-3">Instant MoMo / Card Direct Payment</h3>
-                  <p className="text-gray-200 text-sm mb-4">Support with any amount via instant MTN MoMo, Vodafone Cash, or Telecel popup.</p>
+                  <h3 className="text-[#F5C518] font-bold text-lg mb-3">MTN Mobile Money (MoMo)</h3>
+                  <p className="text-gray-200 text-sm mb-1"><strong>Number:</strong> 0536099813</p>
+                  <p className="text-gray-200 text-sm mb-1"><strong>Name:</strong> Stephen Appiah</p>
+                  <p className="text-[#E87722] text-xs font-semibold mt-3">Reference: Support Dito Rise</p>
                 </div>
-                <button 
-                  onClick={() => handlePaystackPayment(20, "DITO RISE Support Contribution")}
-                  className="w-full bg-[#D4A017] hover:bg-[#F5C518] text-[#0A1628] font-bold py-3 px-4 rounded-md transition text-center"
-                >
-                  💳 Support GHS 20 via MoMo
-                </button>
               </div>
 
               <div className="bg-[#132238] border border-[#1e3a5f] p-6 rounded-xl shadow-lg flex flex-col justify-between">
                 <div>
                   <h3 className="text-[#F5C518] font-bold text-lg mb-2">Direct Contact</h3>
-                  <p className="text-gray-300 text-sm mb-4">Reach out to us directly on WhatsApp to collaborate or contribute manually.</p>
+                  <p className="text-gray-300 text-sm mb-4">Reach out to us directly on WhatsApp to collaborate or confirm a transfer.</p>
                 </div>
                 <button 
                   onClick={handleWhatsAppClick}
