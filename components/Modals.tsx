@@ -7,7 +7,7 @@ const FORMSPREE_URL = "https://formspree.io/f/mbglyrgg";
 
 interface ModalsProps {
   isAmbassadorOpen: boolean;
-  isBookOpen: boolean;
+  isBookOpen: boolean; 
   onCloseAmbassador: () => void;
   onCloseBook: () => void;
 }
