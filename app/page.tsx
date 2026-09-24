@@ -61,6 +61,50 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Video Feature Section */}
+        <section className="px-6 py-12 max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-[#F5C518] mb-4">Watch Our Movement in Action</h2>
+          <p className="text-gray-300 text-sm mb-6 max-w-2xl mx-auto">
+            See how the DITO RISE mindset and values are transforming communities and inspiring leaders.
+          </p>
+          <div className="relative rounded-2xl overflow-hidden border-2 border-[#D4A017] shadow-2xl bg-black max-w-3xl mx-auto">
+            <video 
+              controls 
+              className="w-full h-auto rounded-lg"
+              poster="/book-we-are-one.png"
+            >
+              <source src="/we-are-one.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </section>
+
+        {/* Featured Book Showcase */}
+        <section className="px-6 py-12 bg-[#081220]">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-[#132238] p-8 rounded-2xl border border-[#1e3a5f]">
+            <div className="flex justify-center">
+              <img 
+                src="/book-we-are-one.png" 
+                alt="We Are One Book Cover" 
+                className="w-64 md:w-80 rounded-lg shadow-2xl border border-[#D4A017] object-cover"
+              />
+            </div>
+            <div>
+              <span className="text-[#E87722] text-xs font-bold uppercase tracking-wider block mb-2">Featured Release</span>
+              <h3 className="text-3xl font-bold text-white mb-4">WE ARE ONE</h3>
+              <p className="text-gray-300 text-sm mb-6 leading-relaxed">
+                Discover the transformative power of unity, self-awareness, and shared vision. A powerful blueprint designed to shift your mindset and realign your daily habits with true purpose.
+              </p>
+              <button 
+                onClick={() => setModalType('book')}
+                className="bg-[#D4A017] hover:bg-[#F5C518] text-[#0A1628] font-bold px-6 py-3 rounded-md transition"
+              >
+                Request / Order This Book
+              </button>
+            </div>
+          </div>
+        </section>
+
         {/* Books & Publications Section */}
         <section id="books" className="px-6 py-16 max-w-6xl mx-auto">
           <div className="text-center mb-12">
@@ -126,7 +170,6 @@ export default function Home() {
 
       </main>
 
-      {/* Correct Modals Props matching Modals.tsx */}
       <Modals 
         isOpen={Boolean(modalType)} 
         modalType={modalType} 
